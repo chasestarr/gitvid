@@ -1,5 +1,7 @@
 const auth = require('./authHelper');
 const db = require('./db/dbHelper');
+const util = require('./utility');
+const baseUrl = require('./config').BASE_URL;
 const request = require('request');
 
 function install(username, installation_id) {
@@ -26,7 +28,7 @@ function comment(username, commentUrl) {
       const options = {
         url: commentUrl,
         json: {
-          body: 'Hello World',
+          body: baseUrl + '/' + util.shortCode(commentUrl),
         },
         headers: {
             'User-Agent': 'GitVid',
