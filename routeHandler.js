@@ -22,7 +22,11 @@ function handleWebhook(req, res) {
       const username = json.repository.owner.login;
       const command = json.comment.body.split(' ')[0].toLowerCase();
       if (command === '!gitvid') {
-        integration.comment(username);
+        let fullName = json.repository.full_name;
+        let issueNumber = json.issue.number;
+        let commentUrl = `https://api.github.com/repos/${fullName}/issues/${issueNumber}/comments`;
+
+        integration.comment(username, commentUrl);
       }
     }
   });

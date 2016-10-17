@@ -25,6 +25,7 @@ function getAccessToken(id, cb) {
     }
   };
   request.post(options, (err, res, body) => {
+    if (err) console.log('request failed:', err);
     cb(body);
   });
 }
