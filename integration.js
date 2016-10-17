@@ -1,4 +1,4 @@
-const helper = require('./helper');
+const auth = require('./authHelper');
 const db = require('./db/dbHelper');
 
 function install(username, installation_id) {
@@ -22,7 +22,7 @@ function comment(username) {
   // handle comment
   db.User.find({ where: { username: username } })
   .then((user) => {
-    helper.getAccessToken(user.installation_id, (accessToken) => {
+    auth.getAccessToken(user.installation_id, (accessToken) => {
       console.log(accessToken);
     });
   })
