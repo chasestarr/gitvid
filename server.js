@@ -4,7 +4,7 @@ const handler = require('./routeHandler');
 
 const app = express();
 
-app.post('/comment', handler.handleComment);
+app.post('/comment', handler.handleWebhook);
 
 const port = process.env.PORT || 7000;
 app.listen(port, function() {

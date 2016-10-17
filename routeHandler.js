@@ -1,10 +1,22 @@
 const helper = require('./helper');
+const db = require('./db/dbHelper');
 
-function handleComment(req, res) {
+function handleWebhook(req, res) {
   req.on('data', (data) => {
     let json = JSON.parse(data.toString());
+
     console.log(json);
-    let repoId = json.repository.id;
+
+    // User installs the integration
+    if (json.action === 'created' && json.installation) {
+
+    }
+
+    // User deletes the integration
+    if (json.action === 'deleted' && json.installation) {
+
+    }
+    // let repoId = json.repository.id;
     helper.getAccessToken(1825, (accessToken) => {
       console.log(accessToken);
     });
@@ -14,5 +26,5 @@ function handleComment(req, res) {
 }
 
 module.exports = {
-  handleComment: handleComment
+  handleWebhook: handleWebhook
 }
