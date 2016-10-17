@@ -33,6 +33,12 @@ function handleWebhook(req, res) {
   res.status(201).send();
 }
 
-module.exports = {
-  handleWebhook: handleWebhook
+function navToRoom(req, res) {
+  const shortCode = req.params.shortCode;
+  res.status(200).send(shortCode);
 }
+
+module.exports = {
+  handleWebhook: handleWebhook,
+  navToRoom: navToRoom
+};
