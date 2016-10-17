@@ -1,4 +1,6 @@
+const fs = require('fs');
 const jwt = require('jwt-simple');
+const request = require('request');
 const integrationId = require('./config').INTEGRATION_ID;
 const keyPath = require('./config').KEY_PATH;
 
@@ -19,7 +21,7 @@ function getAccessToken(id, cb) {
     headers: {
       'User-Agent': 'GitVid',
       Accept: 'application/vnd.github.machine-man-preview+json',
-      Authorization: `Bearer ${_integration_token()}`
+      Authorization: `Bearer ${_integrationAuth()}`
     }
   };
   request.post(options, (err, res, body) => {
