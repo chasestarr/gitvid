@@ -4,6 +4,9 @@ const request = require('request');
 const integrationId = require('./config').INTEGRATION_ID;
 const keyPath = require('./config').KEY_PATH;
 
+const AccessToken = require('twilio').AccessToken;
+const ConversationsGrant = AccessToken.ConversationsGrant;
+
 const key = fs.readFileSync(keyPath);
 
 function _integrationAuth() {
@@ -28,6 +31,10 @@ function getAccessToken(id, cb) {
     if (err) console.log('request failed:', err);
     cb(body);
   });
+}
+
+function getTwilioToken() {
+
 }
 
 module.exports = {

@@ -33,6 +33,10 @@ function handleWebhook(req, res) {
   res.status(201).send();
 }
 
+function handleToken(req, res) {
+
+}
+
 function navToRoom(req, res) {
   const shortCode = req.params.shortCode;
   res.status(200).send(shortCode);
@@ -40,5 +44,6 @@ function navToRoom(req, res) {
 
 module.exports = {
   handleWebhook: handleWebhook,
-  navToRoom: navToRoom
+  handleToken: handleToken,
+  navToRoom: navToRoom,
 };

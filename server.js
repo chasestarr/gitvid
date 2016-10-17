@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 app.post('/comment', handler.handleWebhook);
-app.get('/', (req, res) => res.status(200).send('Hello World'));
+app.get('/token', handler.handleToken);
+app.get('/', (req, res) => res.status(200).render('index.html'));
 app.get('/:shortCode', handler.navToRoom);
 
 const port = process.env.PORT || 7000;
