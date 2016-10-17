@@ -4,6 +4,7 @@ const request = require('request');
 const integrationId = require('./config').INTEGRATION_ID;
 const keyPath = require('./config').KEY_PATH;
 
+const t = require('./twilioConfig');
 const AccessToken = require('twilio').AccessToken;
 const ConversationsGrant = AccessToken.ConversationsGrant;
 
@@ -34,7 +35,17 @@ function getAccessToken(id, cb) {
 }
 
 function getTwilioToken() {
+  let token = new AccessToken(
+    t.TWILIO_ACCOUNT_SID,
+    t.TWILIO_API_KEY,
+    t.TWILIO_API_SECRET
+  );
 
+  let grant = new ConversationsGrant();
+  grant.configurationProfileSid = t.TWILIO_CONFIGURATION_SID;
+  token.addGrant(grant);
+
+  return { token: token.toJwt() };
 }
 
 module.exports = {

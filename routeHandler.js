@@ -1,4 +1,5 @@
 const integration = require('./integration');
+const auth = require('./authHelper');
 
 function handleWebhook(req, res) {
   req.on('data', (data) => {
@@ -34,7 +35,8 @@ function handleWebhook(req, res) {
 }
 
 function handleToken(req, res) {
-
+  const token = auth.getTwilioToken;
+  res.status(200).send(token);
 }
 
 function navToRoom(req, res) {
