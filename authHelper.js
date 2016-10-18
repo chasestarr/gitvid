@@ -49,5 +49,6 @@ function getTwilioToken() {
 }
 
 module.exports = {
-  getAccessToken: getAccessToken
+  getAccessToken: getAccessToken,
+  getTwilioToken: getTwilioToken
 }
