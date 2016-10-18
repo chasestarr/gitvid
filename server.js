@@ -15,7 +15,7 @@ app.get('/token', handler.handleToken);
 app.get('/', (req, res) => res.status(200).render('index.html'));
 app.get('/:shortCode', handler.navToRoom);
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 7001;
 app.listen(port, () => {
     console.log('server started at:', port);
 });
@@ -25,6 +25,6 @@ const options = {
     cert: fs.readFileSync(require('./config').SSL_CERT)
 }
 
-https.createServer(options, app).listen(8000, () => {
-    console.log('https server listening on 8000');
+https.createServer(options, app).listen(8002, () => {
+    console.log('https server listening on 8002');
 });
