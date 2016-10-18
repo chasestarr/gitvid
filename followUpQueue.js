@@ -9,13 +9,11 @@ function followUp(username, commentUrl, token) {
     token: token,
     time: Math.round(Date.now() / 1000)
   });
-
-  console.log('this is the queue', queue);
 }
 
 function _loop() {
   const now = Math.round(Date.now() / 1000);
-  const TEN_MINUTES = 60 * 1; // <----- testing one minute for now
+  const TEN_MINUTES = 60 * 10; // <--- waiting 10 mins before processing job
   let job = queue[0];
   if (job) {
     console.log(now - job.time);
@@ -35,14 +33,14 @@ function _loop() {
       request.post(options, (err, res, body) => {
         if (err) console.log('request failed:', err);
         console.log('status code:', res.statusCode);
-        console.log('Comment successful!');
+        console.log('Follow-up comment successful!');
         if (!err) queue.shift();
       });
     }
   }
 }
 
-setInterval(_loop, 1000 * 61);
+setInterval(_loop, 1000 * 30);
 _loop();
 
 module.exports = {
