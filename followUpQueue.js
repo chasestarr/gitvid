@@ -1,4 +1,4 @@
-const integration = require('./integration');
+const integration = require('./integration.js');
 console.log('this is the integration file', integration);
 let queue = [];
 
