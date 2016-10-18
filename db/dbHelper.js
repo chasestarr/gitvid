@@ -9,7 +9,7 @@ const User = sequelize.define('User', {
 User.sync();
 
 User.getInstallationId = function(username) {
-  return db.User.find({ where: { username: username } });
+  return User.find({ where: { username: username } });
 };
 
 module.exports = {
