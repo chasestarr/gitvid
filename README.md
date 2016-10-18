@@ -4,7 +4,7 @@ Video chat for GitHub issues. Quickly start a new p2p conversation with the `!gi
 
 ---
 
-### Getting Started
+### Getting Started ###
 
 - Clone the repo and `npm install`
 - To get a quick dev server running, comment out the https section of server.js (last 8 lines).
@@ -26,10 +26,11 @@ Video chat for GitHub issues. Quickly start a new p2p conversation with the `!gi
     };
     ```
 
-### How you can help
+
+### How you can help ###
 - Twilio's video API kind of sucks, but does have peer discovery built in. One of the first priorities is to move to either a custom system or less restrictive.
 - Offering audio-only chat would be useful for multiple connections at once. The system tends to slow down after 3 or more peers.
 - The front-end could use a spring cleaning ;)
 - Add unit tests
 
-#### Ping me on Twitter [@captivechains](https://twitter.com/captivechains) or here if you have questions.
+#### Ping me on Twitter [@captivechains](https://twitter.com/captivechains) or here if you have questions. ####
