@@ -40,7 +40,7 @@ function comment(username, commentUrl) {
       request.post(options, (err, res, body) => {
         if (err) console.log('request failed:', err);
         console.log('status code:', res.statusCode);
-        console.log('Comment successful!  Server responded with:', body);
+        console.log('Comment successful!');
       });
     });
   })

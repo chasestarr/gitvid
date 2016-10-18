@@ -39,7 +39,7 @@ function handleToken(req, res) {
 
 function navToRoom(req, res) {
   const shortCode = req.params.shortCode;
-  res.status(200).render('room.html');
+  res.status(200).sendFile(__dirname + '/public/room.html');
 }
 
 module.exports = {
