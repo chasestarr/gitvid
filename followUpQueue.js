@@ -2,21 +2,25 @@ const integration = require('./integration');
 let queue = [];
 
 function followUp(username, commentUrl, token) {
+  console.log('following up');
   queue.push({
     username: username,
     commentUrl: commentUrl,
     token: token,
     time: Math.round(Date.now() / 1000)
   });
+
+  console.log('this is the queue', queue);
 }
 
 function _loop() {
+  console.log('looping');
   const now = Math.round(Date.now() / 1000);
-  const TEN_MINUTES = 1000 * 60 * 1; // <----- testing one minute for now
+  const TEN_MINUTES = 60 * 1; // <----- testing one minute for now
   let job = queue[0];
   if (job) {
-    if (now - job.time <= TEN_MINUTES) {
-
+    console.log(now - job.time);
+    if (now - job.time >= TEN_MINUTES) {
       const options = {
         url: job.commentUrl,
         json: {
@@ -30,11 +34,13 @@ function _loop() {
       };
 
       integration.commentOnIssue(options);
+      queue.shift();
     }
   }
 }
 
 setInterval(_loop, 1000 * 70);
+_loop();
 
 module.exports = {
   followUp: followUp
