@@ -35,11 +35,16 @@ function getAccessToken(id, cb) {
 }
 
 function getTwilioToken() {
+  const identity = Math.floor(Math.random() * 1000).toString();
+  // const identity = 'helloWorld';
+
   let token = new AccessToken(
     t.TWILIO_ACCOUNT_SID,
     t.TWILIO_API_KEY,
     t.TWILIO_API_SECRET
   );
+
+  token.identity = identity;
 
   let grant = new ConversationsGrant();
   grant.configurationProfileSid = t.TWILIO_CONFIGURATION_SID;

@@ -1,0 +1,16 @@
+.videoContainer {
+  height: 500px;
+}
+
+#client video{
+  width: 75px;
+  z-index: 2;
+  position: absolute;
+  top: 90px;
+  left: 20px;
+}
+
+#peer video{
+  width: 500px;
+  float: left;
+}
