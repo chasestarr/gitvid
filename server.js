@@ -15,10 +15,10 @@ app.get('/token', handler.handleToken);
 app.get('/', (req, res) => res.status(200).render('index.html'));
 app.get('/:shortCode', handler.navToRoom);
 
-// const port = process.env.PORT || 7000;
-// app.listen(port, () => {
-//     console.log('server started at:', port);
-// });
+const port = process.env.PORT || 7000;
+app.listen(port, () => {
+    console.log('server started at:', port);
+});
 
 const options = {
     key: fs.readFileSync(require('./config').SSL_KEY),
