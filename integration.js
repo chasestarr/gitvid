@@ -4,6 +4,7 @@ const db = require('./db/dbHelper');
 const util = require('./utility');
 const baseUrl = require('./config').BASE_URL;
 const request = require('request');
+const greeting = require('greeting');
 
 function install(username, installation_id) {
   db.User.create({
@@ -29,7 +30,7 @@ function comment(username, commentUrl) {
       const options = {
         url: commentUrl,
         json: {
-          body: baseUrl + '/' + util.shortCode(commentUrl),
+          body: `${greeting.random()} ${username}, here's a link to your GitVid chat: ` + baseUrl + '/' + util.shortCode(commentUrl),
         },
         headers: {
             'User-Agent': 'GitVid',

@@ -34,13 +34,13 @@ function _loop() {
         if (err) console.log('request failed:', err);
         console.log('status code:', res.statusCode);
         console.log('Follow-up comment successful!');
-        if (!err) queue.shift();
+        queue.shift();
       });
     }
   }
 }
 
-setInterval(_loop, 1000 * 30);
+setInterval(_loop, 1000 * 65);
 _loop();
 
 module.exports = {
