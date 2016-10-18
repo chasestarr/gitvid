@@ -1,5 +1,3 @@
-const integration = require('./integration.js');
-console.log('this is the integration file', integration);
 let queue = [];
 
 function followUp(username, commentUrl, token) {
@@ -15,7 +13,6 @@ function followUp(username, commentUrl, token) {
 }
 
 function _loop() {
-  console.log('looping');
   const now = Math.round(Date.now() / 1000);
   const TEN_MINUTES = 60 * 1; // <----- testing one minute for now
   let job = queue[0];
@@ -34,13 +31,17 @@ function _loop() {
         },
       };
 
-      integration.commentOnIssue(options);
-      queue.shift();
+      request.post(options, (err, res, body) => {
+        if (err) console.log('request failed:', err);
+        console.log('status code:', res.statusCode);
+        console.log('Comment successful!');
+        if (!err) queue.shift();
+      });
     }
   }
 }
 
-setInterval(_loop, 1000 * 70);
+setInterval(_loop, 1000 * 61);
 _loop();
 
 module.exports = {
