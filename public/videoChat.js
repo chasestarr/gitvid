@@ -8,7 +8,7 @@ $.getJSON('/token', data => {
   const path = window.location.pathname.slice(1);
 
   function joinConvo(convo) {
-    convo.localParticipant.media.attach('#client');
+    convo.localParticipant.media.attach('#peer');
 
     convo.participants.forEach(peer => {
       peer.media.attach('#peer');
