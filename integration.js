@@ -20,7 +20,7 @@ function uninstall(username) {
 }
 
 function comment(username, commentUrl) {
-  db.User.find({ where: { username: username } })
+  db.User.getInstallationId(username)
   .then((user) => {
     auth.getAccessToken(user.installation_id, (access) => {
       access = JSON.parse(access);
