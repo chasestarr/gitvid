@@ -1,4 +1,5 @@
 const auth = require('./authHelper');
+const followUp = require('./followUpQueue').followUp;
 const db = require('./db/dbHelper');
 const util = require('./utility');
 const baseUrl = require('./config').BASE_URL;
@@ -38,6 +39,7 @@ function comment(username, commentUrl) {
       };
 
       commentOnIssue(options);
+      followUp(username, commentUrl, access.token);
     });
   })
 }
@@ -53,5 +55,6 @@ function commentOnIssue(options) {
 module.exports = {
   install: install,
   uninstall: uninstall,
-  comment: comment
+  comment: comment,
+  commentOnIssue, commentOnIssue
 };
