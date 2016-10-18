@@ -1,3 +1,4 @@
+const request = require('request');
 let queue = [];
 
 function followUp(username, commentUrl, token) {
