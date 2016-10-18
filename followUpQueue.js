@@ -1,5 +1,5 @@
 const integration = require('./integration');
-console.log('this is the integration file');
+console.log('this is the integration file', integration);
 let queue = [];
 
 function followUp(username, commentUrl, token) {
