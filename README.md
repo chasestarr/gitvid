@@ -25,6 +25,7 @@ Video chat for GitHub issues. Quickly start a new p2p conversation with the `!gi
       TWILIO_CONFIGURATION_SID: <CONFIG_SID>
     };
     ```
+
 ### How you can help
 - Twilio's video API kind of sucks, but does have peer discovery built in. One of the first priorities is to move to either a custom system or less restrictive.
 - Offering audio-only chat would be useful for multiple connections at once. The system tends to slow down after 3 or more peers.
