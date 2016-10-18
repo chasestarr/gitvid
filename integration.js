@@ -56,5 +56,5 @@ module.exports = {
   install: install,
   uninstall: uninstall,
   comment: comment,
-  commentOnIssue, commentOnIssue
+  makeComment, commentOnIssue
 };

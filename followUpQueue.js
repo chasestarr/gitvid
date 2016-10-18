@@ -33,7 +33,7 @@ function _loop() {
         },
       };
 
-      integration.commentOnIssue(options);
+      integration.makeComment(options);
       queue.shift();
     }
   }
